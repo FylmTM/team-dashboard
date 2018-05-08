@@ -1,2 +1,1 @@
-# team-dashboard
-JIRA + Gerrit + Jenkins team dashboard
+# Team Dashboard
