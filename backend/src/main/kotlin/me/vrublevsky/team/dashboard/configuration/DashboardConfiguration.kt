@@ -10,12 +10,28 @@ import javax.validation.constraints.NotEmpty
 class DashboardConfiguration {
 
     @Valid
-    var teams: List<Team> = ArrayList()
+    var jira: JiraConfiguration = JiraConfiguration()
 
+    @Valid
     var gerrit: GerritConfiguration = GerritConfiguration()
+
+    @Valid
+    var teams: List<Team> = ArrayList()
 }
 
 class GerritConfiguration {
+
+    @NotEmpty
+    var host: String = ""
+
+    @NotEmpty
+    var username: String = ""
+
+    @NotEmpty
+    var password: String = ""
+}
+
+class JiraConfiguration {
 
     @NotEmpty
     var host: String = ""

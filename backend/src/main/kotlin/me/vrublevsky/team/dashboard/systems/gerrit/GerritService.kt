@@ -1,13 +1,16 @@
 package me.vrublevsky.team.dashboard.systems.gerrit
 
+import com.google.gerrit.extensions.api.GerritApi
 import me.vrublevsky.team.dashboard.configuration.Team
 import org.springframework.stereotype.Service
 
 @Service
-class GerritService {
+class GerritService(
+        val client: GerritApi
+) {
 
     fun getData(teamConfiguration: Team): GerritResponse {
-        // List<ChangeInfo> changes = gerritApi.changes().query("status:merged").withLimit(10).get();
+        // List<ChangeInfo> changes = client.changes().query("status:merged").withLimit(10).get();
         return GerritResponse("gerrit")
     }
 }
