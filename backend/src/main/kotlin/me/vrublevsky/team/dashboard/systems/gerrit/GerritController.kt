@@ -10,12 +10,15 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("/team/{teamName}/gerrit")
 class GerritController(
-        val teamConfigurationService: TeamConfigurationService
+        val teamConfigurationService: TeamConfigurationService,
+        val gerritService: GerritService
 ) {
 
     @GetMapping
     fun gerrit(@PathVariable teamName: String): SuccessResponse<GerritResponse> {
         val teamConfiguration = teamConfigurationService.getTeamConfiguration(teamName)
-        return SuccessResponse(GerritResponse("gerrit"))
+        return SuccessResponse(
+                gerritService.getData(teamConfiguration)
+        )
     }
 }

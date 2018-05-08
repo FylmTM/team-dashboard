@@ -45,7 +45,9 @@ dependencies {
     compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     compile("org.jetbrains.kotlin:kotlin-reflect")
 
-    compileOnly "org.springframework.boot:spring-boot-configuration-processor"
+    compile('com.urswolfer.gerrit.client.rest:gerrit-rest-java-client:0.8.14')
+
+    compileOnly('org.springframework.boot:spring-boot-configuration-processor')
 
     runtime('org.springframework.boot:spring-boot-devtools')
 

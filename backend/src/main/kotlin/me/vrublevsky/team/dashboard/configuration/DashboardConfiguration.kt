@@ -11,6 +11,20 @@ class DashboardConfiguration {
 
     @Valid
     var teams: List<Team> = ArrayList()
+
+    var gerrit: GerritConfiguration = GerritConfiguration()
+}
+
+class GerritConfiguration {
+
+    @NotEmpty
+    var host: String = ""
+
+    @NotEmpty
+    var username: String = ""
+
+    @NotEmpty
+    var password: String = ""
 }
 
 class Team {
