@@ -46,7 +46,11 @@ dependencies {
     compile("org.jetbrains.kotlin:kotlin-reflect")
 
     compile('com.urswolfer.gerrit.client.rest:gerrit-rest-java-client:0.8.14')
-    compile('net.rcarz:jira-client:0.5')
+    compile('net.rcarz:jira-client:0.5') {
+        exclude group: 'junit', module: 'junit'
+        exclude group: 'org.mockito', module: 'mockito-all'
+    }
+    compile('javax.xml.bind:jaxb-api:2.3.0')
     compile('com.offbytwo.jenkins:jenkins-client:0.3.7')
 
     compileOnly('org.springframework.boot:spring-boot-configuration-processor')

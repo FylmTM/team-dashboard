@@ -17,6 +17,6 @@ class JenkinsClientConfiguration(
                 URI(configuration.jenkins.host),
                 configuration.jenkins.username,
                 configuration.jenkins.password
-        );
+        )
     }
 }
