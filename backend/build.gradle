@@ -40,7 +40,7 @@ repositories {
 }
 
 dependencies {
-    compile('org.springframework.boot:spring-boot-starter-webflux')
+    compile('org.springframework.boot:spring-boot-starter-web')
     compile('com.fasterxml.jackson.module:jackson-module-kotlin')
     compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     compile("org.jetbrains.kotlin:kotlin-reflect")
@@ -48,6 +48,5 @@ dependencies {
     runtime('org.springframework.boot:spring-boot-devtools')
 
     testCompile('org.springframework.boot:spring-boot-starter-test')
-    testCompile('io.projectreactor:reactor-test')
     testCompile('org.springframework.restdocs:spring-restdocs-mockmvc')
 }
