@@ -47,6 +47,7 @@ dependencies {
 
     compile('com.urswolfer.gerrit.client.rest:gerrit-rest-java-client:0.8.14')
     compile('net.rcarz:jira-client:0.5')
+    compile('com.offbytwo.jenkins:jenkins-client:0.3.7')
 
     compileOnly('org.springframework.boot:spring-boot-configuration-processor')
 

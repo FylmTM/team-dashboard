@@ -9,7 +9,7 @@ class GerritService(
         val client: GerritApi
 ) {
 
-    fun getData(teamConfiguration: Team): GerritResponse {
+    fun getData(team: Team): GerritResponse {
         // List<ChangeInfo> changes = client.changes().query("status:merged").withLimit(10).get();
         return GerritResponse("gerrit")
     }

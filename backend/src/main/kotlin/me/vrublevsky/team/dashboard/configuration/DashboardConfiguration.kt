@@ -16,6 +16,9 @@ class DashboardConfiguration {
     var gerrit: GerritConfiguration = GerritConfiguration()
 
     @Valid
+    var jenkins: JenkinsConfiguration = JenkinsConfiguration()
+
+    @Valid
     var teams: List<Team> = ArrayList()
 }
 
@@ -32,6 +35,18 @@ class GerritConfiguration {
 }
 
 class JiraConfiguration {
+
+    @NotEmpty
+    var host: String = ""
+
+    @NotEmpty
+    var username: String = ""
+
+    @NotEmpty
+    var password: String = ""
+}
+
+class JenkinsConfiguration {
 
     @NotEmpty
     var host: String = ""

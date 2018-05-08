@@ -10,12 +10,15 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("/team/{teamName}/jenkins")
 class JenkinsController(
-        val teamConfigurationService: TeamConfigurationService
+        val teamConfigurationService: TeamConfigurationService,
+        val jenkinsService: JenkinsService
 ) {
 
     @GetMapping
     fun jenkins(@PathVariable teamName: String): SuccessResponse<JenkinsResponse> {
         val teamConfiguration = teamConfigurationService.getTeamConfiguration(teamName)
-        return SuccessResponse(JenkinsResponse("jenkins"))
+        return SuccessResponse(
+                jenkinsService.getData(teamConfiguration)
+        )
     }
 }

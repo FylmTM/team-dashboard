@@ -10,12 +10,15 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("/team/{teamName}/jira")
 class JiraController(
-        val teamConfigurationService: TeamConfigurationService
+        val teamConfigurationService: TeamConfigurationService,
+        val jiraService: JiraService
 ) {
 
     @GetMapping
     fun jira(@PathVariable teamName: String): SuccessResponse<JiraResponse> {
         val teamConfiguration = teamConfigurationService.getTeamConfiguration(teamName)
-        return SuccessResponse(JiraResponse("jira"))
+        return SuccessResponse(
+                jiraService.getData(teamConfiguration)
+        )
     }
 }
