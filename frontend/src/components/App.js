@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 
 import Jobs from './jenkins/JenkinsJobs';
+import JiraBoard from './jira/JiraBoard';
 
 import './App.css';
 
@@ -11,6 +12,7 @@ class App extends Component {
                 <div className="grid-column">
                     <div className="grid-unit padding-10">
                         <h2 key="jenkins-title">JIRA</h2>
+                        <JiraBoard/>
                     </div>
                 </div>
                 <div className="grid-column">
@@ -21,6 +23,7 @@ class App extends Component {
                         </div>
                         <div className="grid-block">
                             <h2 key="jenkins-title">Gerrit</h2>
+                            <p><b>WIP</b></p>
                         </div>
                     </div>
                 </div>

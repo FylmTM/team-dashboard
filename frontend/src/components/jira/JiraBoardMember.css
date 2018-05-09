@@ -1,0 +1,7 @@
+.jira-board-member td .jira-issue {
+    margin-bottom: 10px;
+}
+
+.jira-board-member td .jira-issue:last-child {
+    margin-bottom: 0;
+}
