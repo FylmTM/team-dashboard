@@ -9,7 +9,6 @@ export function JiraBoard({board: {sprintName, members}}) {
     return (
         <div className="jira-board">
             <div className="grid-block">
-                <h4>{sprintName} - Progress</h4>
                 <table className="pt-html-table pt-html-table-bordered pt-html-table-bordered">
                     <thead>
                     <tr>
