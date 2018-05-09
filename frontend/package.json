@@ -2,6 +2,9 @@
   "name": "dashboard",
   "version": "0.1.0",
   "private": true,
+  "engine": {
+    "node": "10.1.0"
+  },
   "dependencies": {
     "@blueprintjs/core": "^2.2.1",
     "react": "^16.3.2",
