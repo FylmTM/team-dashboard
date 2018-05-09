@@ -63,8 +63,17 @@ class Team {
     @NotEmpty
     var name: String = ""
 
+    @Valid
+    var jira: TeamJiraConfiguration = TeamJiraConfiguration()
+
     @NotEmpty
     var members: List<Member> = ArrayList()
+}
+
+class TeamJiraConfiguration {
+
+    @NotEmpty
+    var boardId: Long = 0
 }
 
 class Member {
@@ -73,5 +82,5 @@ class Member {
     var name: String = ""
 
     @NotEmpty
-    var login: String = ""
+    var username: String = ""
 }

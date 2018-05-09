@@ -16,9 +16,9 @@ class JiraController(
 
     @GetMapping
     fun jira(@PathVariable teamName: String): SuccessResponse<JiraResponse> {
-        val teamConfiguration = teamConfigurationService.getTeamConfiguration(teamName)
+        val team = teamConfigurationService.getTeam(teamName)
         return SuccessResponse(
-                jiraService.getData(teamConfiguration)
+                jiraService.getData(team)
         )
     }
 }

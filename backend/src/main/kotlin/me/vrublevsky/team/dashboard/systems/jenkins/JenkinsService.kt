@@ -10,7 +10,6 @@ class JenkinsService(
 ) {
 
     fun getData(teamConfiguration: Team): JenkinsResponse {
-        // Map<String, Job> jobs = client.getJobs()
         return JenkinsResponse("jenkins")
     }
 }

@@ -16,9 +16,9 @@ class JenkinsController(
 
     @GetMapping
     fun jenkins(@PathVariable teamName: String): SuccessResponse<JenkinsResponse> {
-        val teamConfiguration = teamConfigurationService.getTeamConfiguration(teamName)
+        val team = teamConfigurationService.getTeam(teamName)
         return SuccessResponse(
-                jenkinsService.getData(teamConfiguration)
+                jenkinsService.getData(team)
         )
     }
 }

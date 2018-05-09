@@ -9,7 +9,7 @@ class TeamConfigurationService(
         val configuration: DashboardConfiguration
 ) {
 
-    fun getTeamConfiguration(teamName: String): Team {
+    fun getTeam(teamName: String): Team {
         return configuration.teams.stream()
                 .filter({ team -> team.name == teamName })
                 .findFirst()

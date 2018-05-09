@@ -1,6 +1,0 @@
-dashboard:
-  teams:
-    - name: MyTeam
-      members:
-        - name: Dmitry Vrublevsky
-          login: dmitry.vrublevsky

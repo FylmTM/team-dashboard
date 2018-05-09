@@ -16,9 +16,9 @@ class GerritController(
 
     @GetMapping
     fun gerrit(@PathVariable teamName: String): SuccessResponse<GerritResponse> {
-        val teamConfiguration = teamConfigurationService.getTeamConfiguration(teamName)
+        val team = teamConfigurationService.getTeam(teamName)
         return SuccessResponse(
-                gerritService.getData(teamConfiguration)
+                gerritService.getData(team)
         )
     }
 }

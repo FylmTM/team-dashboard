@@ -3,6 +3,7 @@ package me.vrublevsky.team.dashboard.systems.jira
 import me.vrublevsky.team.dashboard.configuration.DashboardConfiguration
 import net.rcarz.jiraclient.BasicCredentials
 import net.rcarz.jiraclient.JiraClient
+import net.rcarz.jiraclient.agile.AgileClient
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
@@ -20,5 +21,10 @@ class JiraClientConfiguration(
                         configuration.jira.password
                 )
         )
+    }
+
+    @Bean
+    fun createJiraAgileClient(jiraClient: JiraClient): AgileClient {
+        return AgileClient(jiraClient)
     }
 }
