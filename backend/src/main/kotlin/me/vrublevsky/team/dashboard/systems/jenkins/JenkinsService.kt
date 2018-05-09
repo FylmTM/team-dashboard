@@ -10,6 +10,10 @@ class JenkinsService(
 ) {
 
     fun getData(teamConfiguration: Team): JenkinsResponse {
+        val job = client.getJob("job-1")
+        val lastBuild = job.lastBuild;
+        lastBuild.details().duration
+        lastBuild.details().isBuilding
         return JenkinsResponse("jenkins")
     }
 }

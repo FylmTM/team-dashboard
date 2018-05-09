@@ -1,0 +1,7 @@
+.jenkins-jobs .jenkins-job {
+    margin-bottom: 5px;
+}
+
+.jenkins-jobs .jenkins-job:last-child {
+    margin-bottom: 0;
+}

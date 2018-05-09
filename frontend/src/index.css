@@ -1,5 +1,39 @@
+:root {
+    --background-color: #293742
+}
+
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: var(--background-color);
+}
+
+html, body, #root {
+    height: 100%;
+}
+
+.grid-row {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    height: 100%;
+}
+
+.grid-column {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.grid-unit {
+    flex: 1;
+}
+
+.grid-block {
+    margin-bottom: 20px;
+}
+
+.padding-10 {
+    padding: 10px;
 }
