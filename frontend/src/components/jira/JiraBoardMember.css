@@ -5,3 +5,7 @@
 .jira-board-member td .jira-issue:last-child {
     margin-bottom: 0;
 }
+
+.jira-board-member-lazy td {
+    background: #FF7373;
+}

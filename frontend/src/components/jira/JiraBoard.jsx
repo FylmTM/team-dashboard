@@ -26,10 +26,6 @@ export function JiraBoard({board: {sprintName, members}}) {
                     </tbody>
                 </table>
             </div>
-            <div className="grid-block">
-                <h4>Open</h4>
-                <p><b>WIP</b></p>
-            </div>
         </div>
     );
 }

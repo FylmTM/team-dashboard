@@ -14,8 +14,10 @@ export default function JiraBoardMember({member}) {
     } = member;
 
     const createIssueTag = issue => <JiraIssueTag key={issue.key} issue={issue}/>;
+    const hasIssuesInProgress = inProgress.length !== 0  || review.length !== 0;
+
     return (
-        <tr className="jira-board-member">
+        <tr className={`jira-board-member ${hasIssuesInProgress ? 'jira-board-member-good' : 'jira-board-member-lazy'}`}>
             <td>{name}</td>
             <td>{blocked.map(createIssueTag)}</td>
             <td>{inProgress.map(createIssueTag)}</td>
