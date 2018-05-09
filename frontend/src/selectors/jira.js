@@ -1,4 +1,5 @@
 import {createSelector} from 'reselect';
+import {calculateBusinessDays} from '../util/time';
 
 const jiraSelector = state => state.jira;
 const teamSelector = state => state.team;
@@ -29,6 +30,17 @@ function filterIssuesReview(username, issues) {
         .filter(hasStatus(["Review"]));
 }
 
+function enrichWithAge(issue) {
+    const transition = issue.transitions
+        .reverse()
+        .find(transition => transition.from === "Open");
+
+    return {
+        ...issue,
+        age: calculateBusinessDays(transition.created)
+    }
+}
+
 export const jiraDataSelector = createSelector(
     teamSelector,
     jiraSelector,
@@ -37,9 +49,12 @@ export const jiraDataSelector = createSelector(
         members: team.members.map(member => ({
             name: member.name,
             issues: {
-                blocked: filterIssuesBlocked(member.username, jira.issues),
-                inProgress: filterIssuesInProgress(member.username, jira.issues),
+                blocked: filterIssuesBlocked(member.username, jira.issues)
+                    .map(enrichWithAge),
+                inProgress: filterIssuesInProgress(member.username, jira.issues)
+                    .map(enrichWithAge),
                 review: filterIssuesReview(member.username, jira.issues)
+                    .map(enrichWithAge)
             }
         }))
     })
