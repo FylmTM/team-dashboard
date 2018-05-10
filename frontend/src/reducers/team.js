@@ -1,5 +1,5 @@
 const initialState = {
-  loaded: false
+  loaded: false,
 };
 
 export default function team(state = initialState, action) {
@@ -7,7 +7,7 @@ export default function team(state = initialState, action) {
     case 'team/load':
       return {
         loaded: true,
-        data: action.data
+        data: action.data,
       };
     default:
       return state;

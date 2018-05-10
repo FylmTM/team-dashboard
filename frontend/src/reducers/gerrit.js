@@ -2,7 +2,7 @@ import data from './mock-data/gerrit';
 
 const initialState = {
   loaded: true,
-  data
+  data,
 };
 
 export default function gerrit(state = initialState, action) {
@@ -10,7 +10,7 @@ export default function gerrit(state = initialState, action) {
     case 'gerrit/load':
       return {
         loaded: true,
-        data: action.data
+        data: action.data,
       };
     default:
       return state;

@@ -1,7 +1,3 @@
-export {
-    jenkinsBuildDataSelector
-} from './jenkins';
+export { jenkinsBuildDataSelector } from './jenkins';
 
-export {
-    jiraDataSelector
-} from './jira';
+export { jiraDataSelector } from './jira';

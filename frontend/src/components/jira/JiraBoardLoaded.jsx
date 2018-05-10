@@ -1,25 +1,25 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {Spinner} from '@blueprintjs/core';
+import { connect } from 'react-redux';
+import { Spinner } from '@blueprintjs/core';
 
 import JiraBoard from './JiraBoard';
 
-export function JiraBoardLoaded({isLoaded}) {
+export function JiraBoardLoaded({ isLoaded }) {
   if (!isLoaded) {
     return (
-        <div className="center">
-          <Spinner/>
-        </div>
+      <div className="center">
+        <Spinner />
+      </div>
     );
   }
 
-  return <JiraBoard/>;
+  return <JiraBoard />;
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
-    isLoaded: state.jira.loaded
-  }
+    isLoaded: state.jira.loaded,
+  };
 };
 
-export default connect(mapStateToProps)(JiraBoardLoaded)
+export default connect(mapStateToProps)(JiraBoardLoaded);

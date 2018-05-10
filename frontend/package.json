@@ -19,13 +19,20 @@
     "reselect": "^3.0.1"
   },
   "devDependencies": {
-    "prettier": "1.12.1"
+    "husky": "0.14.3",
+    "prettier": "1.12.1",
+    "pretty-quick": "1.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "lint": "prettier --single-quote --trailing-comma es5 --write \"src/**/*.js\" \"src/**/*.jsx\""
+    "lint": "prettier --write \"src/**/*.js\" \"src/**/*.jsx\"",
+    "precommit": "pretty-quick --staged"
   },
-  "proxy": "http://localhost:8080"
+  "proxy": "http://localhost:8080",
+  "prettier": {
+    "trailingComma": "es5",
+    "singleQuote": true
+  }
 }
