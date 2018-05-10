@@ -17,9 +17,11 @@ export default function GerritChange({
     <div className={`gerrit-change gerrit-change-${ageLevel} pt-ui-text-large`}>
       <span>
         <b>
-          [{age}d]&nbsp;{project}
-        </b>{' '}
-        +{insertions} -{deletions}
+          [{age}d]&nbsp;{project}&nbsp;
+        </b>
+        <span className="pt-ui-text">
+          +{insertions} -{deletions}
+        </span>
       </span>
       <br />
       <span>{subject}</span>

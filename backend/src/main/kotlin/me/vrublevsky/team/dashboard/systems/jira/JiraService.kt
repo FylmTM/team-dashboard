@@ -31,7 +31,7 @@ class JiraService(
                     JiraIssue(
                             issue.key,
                             issue.summary,
-                            Optional.of(issue.assignee)
+                            Optional.ofNullable(issue.assignee)
                                     .map { user -> user.name }
                                     .orElse("none"),
                             JiraIssueType(

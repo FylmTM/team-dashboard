@@ -95,6 +95,6 @@ function startPolling(store) {
 export function fetchAndPollData(store) {
   updateTeamName();
   loadData(store);
-  startPolling(store);
+  // startPolling(store);
   listenForHashChange(store);
 }

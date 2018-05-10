@@ -27,10 +27,17 @@ function filterIssuesReview(username, issues) {
 }
 
 function enrichWithAge(issue) {
-  const transition = issue.transitions
+  let transition = issue.transitions
     .reverse()
     .find(transition => transition.from === 'Open');
 
+  if (transition == null) {
+    transition = issue.transitions
+      .reverse()
+      .find(transition => transition.from === 'To Do');
+  }
+
+  // debugger;
   return {
     ...issue,
     age: calculateBusinessDays(transition.created),
