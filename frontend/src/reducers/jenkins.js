@@ -9,6 +9,11 @@ export default function jenkins(state = initialState, action) {
         loaded: true,
         data: action.data,
       };
+
+    case 'jenkins/unload':
+      return {
+        loaded: false,
+      };
     default:
       return state;
   }

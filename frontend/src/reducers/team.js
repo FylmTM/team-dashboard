@@ -9,6 +9,10 @@ export default function team(state = initialState, action) {
         loaded: true,
         data: action.data,
       };
+    case 'team/unload':
+      return {
+        loaded: false,
+      };
     default:
       return state;
   }

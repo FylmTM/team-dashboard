@@ -12,6 +12,10 @@ export default function gerrit(state = initialState, action) {
         loaded: true,
         data: action.data,
       };
+    case 'gerrit/unload':
+      return {
+        loaded: false,
+      };
     default:
       return state;
   }

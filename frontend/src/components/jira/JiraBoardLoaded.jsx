@@ -18,7 +18,7 @@ export function JiraBoardLoaded({ isLoaded }) {
 
 const mapStateToProps = state => {
   return {
-    isLoaded: state.jira.loaded,
+    isLoaded: state.jira.loaded && state.team.loaded,
   };
 };
 

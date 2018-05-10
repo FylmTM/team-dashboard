@@ -9,6 +9,10 @@ export default function jira(state = initialState, action) {
         loaded: true,
         data: action.data,
       };
+    case 'jira/unload':
+      return {
+        loaded: false,
+      };
     default:
       return state;
   }

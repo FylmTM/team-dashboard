@@ -1,8 +1,8 @@
 import { createSelector } from 'reselect';
 import { calculateBusinessDays } from '../util/time';
 
-const jiraSelector = state => state.jira;
-const teamSelector = state => state.team;
+const jiraSelector = state => state.jira.data;
+const teamSelector = state => state.team.data;
 
 function belongToUser(username) {
   return issue => issue.assigneeUsername === username;

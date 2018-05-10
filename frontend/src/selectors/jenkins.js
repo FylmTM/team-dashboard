@@ -2,7 +2,7 @@ import { createSelector } from 'reselect';
 import * as jobStatus from '../constants/jobStatus';
 import moment from 'moment';
 
-const jenkinsSelector = state => state.jenkins;
+const jenkinsSelector = state => state.jenkins.data;
 
 function determineBuildStatus(build) {
   if (build == null) {
