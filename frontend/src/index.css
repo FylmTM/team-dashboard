@@ -41,3 +41,7 @@ html, body, #root {
 .padding-10 {
     padding: 10px;
 }
+
+.center {
+    text-align: center;
+}

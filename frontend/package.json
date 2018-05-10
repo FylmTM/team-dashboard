@@ -18,10 +18,14 @@
     "redux-thunk": "^2.2.0",
     "reselect": "^3.0.1"
   },
+  "devDependencies": {
+    "prettier": "1.12.1"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom"
+    "test": "react-scripts test --env=jsdom",
+    "lint": "prettier --single-quote --trailing-comma es5 --write \"src/**/*.js\" \"src/**/*.jsx\""
   },
   "proxy": "http://localhost:8080"
 }
