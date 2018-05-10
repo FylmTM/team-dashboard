@@ -1,0 +1,13 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+
+deploy:
+  provider: script
+  script: bash bin/docker_push.sh
+  on:
+    branch: master
+    tags: true

@@ -3,7 +3,7 @@ FROM node:10.1.0
 WORKDIR /app
 COPY . .
 RUN npm install
-RUN npm build
+RUN npm run build
 
 FROM httpd:2.4
 
