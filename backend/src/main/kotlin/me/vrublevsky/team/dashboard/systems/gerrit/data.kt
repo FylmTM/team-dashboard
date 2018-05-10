@@ -1,3 +1,12 @@
 package me.vrublevsky.team.dashboard.systems.gerrit
 
-data class GerritResponse(val param: String)
+import java.util.*
+
+data class GerritChange(
+        val project: String,
+        val subject: String,
+        val created: Date,
+        val updated: Date,
+        val insertions: Int,
+        val deletions: Int
+)

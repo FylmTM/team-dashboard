@@ -69,6 +69,9 @@ class Team {
     @Valid
     var jenkins: TeamJenkinsConfiguration = TeamJenkinsConfiguration()
 
+    @Valid
+    var gerrit: TeamGerritConfiguration = TeamGerritConfiguration()
+
     @NotEmpty
     var members: List<Member> = ArrayList()
 }
@@ -83,6 +86,21 @@ class TeamJenkinsConfiguration {
 
     @NotEmpty
     var jobs: List<String> = ArrayList()
+}
+
+class TeamGerritConfiguration {
+
+    @NotEmpty
+    var repositories: List<TeamGerritRepositoryConfiguration> = ArrayList()
+}
+
+class TeamGerritRepositoryConfiguration {
+
+    @NotEmpty
+    var name: String = "";
+
+    @NotEmpty
+    var simpleName: String = "";
 }
 
 class Member {
