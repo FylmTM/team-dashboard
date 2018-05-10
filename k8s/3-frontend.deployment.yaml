@@ -16,7 +16,7 @@ spec:
         app: team-dashboard-frontend
     spec:
       containers:
-      - image: fylmtm/team-dashboard-frontend:0.1.0
+      - image: fylmtm/team-dashboard-frontend:0.2.0
         name: team-dashboard-frontend
         ports:
         - name: http-api
