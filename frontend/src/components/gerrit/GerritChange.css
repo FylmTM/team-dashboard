@@ -7,20 +7,10 @@
 }
 
 .gerrit-change {
-  height: 50px;
   padding: var(--gerrit-change-padding);
-  display: flex;
-  flex-direction: row;
 }
 
 .gerrit-change span {
-  display: flex;
-  height: 100%;
-  align-items: center;
-}
-
-.gerrit-change span.gerrit-change-name {
-  flex: 1;
 }
 
 .gerrit-change-normal {

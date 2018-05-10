@@ -4,7 +4,7 @@ import * as gerritChange from '../../constants/gerritChange';
 import './GerritChange.css';
 
 export default function GerritChange({
-  change: { subject, age, insertions, deletions },
+  change: { subject, age, project, insertions, deletions },
 }) {
   let ageLevel = 'normal';
   if (age >= gerritChange.GERRIT_CHANGE_AGE_WARNING) {
@@ -16,9 +16,13 @@ export default function GerritChange({
   return (
     <div className={`gerrit-change gerrit-change-${ageLevel} pt-ui-text-large`}>
       <span>
-        <b>[{age}d]&nbsp;</b>
-        {subject}
+        <b>
+          [{age}d]&nbsp;{project}
+        </b>{' '}
+        +{insertions} -{deletions}
       </span>
+      <br />
+      <span>{subject}</span>
     </div>
   );
 }
