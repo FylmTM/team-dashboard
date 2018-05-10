@@ -1,8 +1,7 @@
 sudo: required
-
+language: bash
 services:
   - docker
-
 deploy:
   provider: script
   script: bash bin/docker_push.sh
