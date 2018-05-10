@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("/team/{teamName}/jira")
+@RequestMapping("/api/team/{teamName}/jira")
 class JiraController(
         val teamConfigurationService: TeamConfigurationService,
         val jiraService: JiraService

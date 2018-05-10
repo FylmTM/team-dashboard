@@ -1,0 +1,7 @@
+.gerrit-changes .gerrit-change {
+  margin-bottom: 5px;
+}
+
+.gerrit-changes .gerrit-change:last-child {
+  margin-bottom: 0;
+}

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 class TeamController(val teamConfigurationService: TeamConfigurationService) {
 
-    @GetMapping("/team/{teamName}")
+    @GetMapping("/api/team/{teamName}")
     fun configuration(@PathVariable teamName: String): SuccessResponse<Team> {
         return SuccessResponse(teamConfigurationService.getTeam(teamName))
     }

@@ -1,0 +1,35 @@
+:root {
+  --gerrit-change-background-normal: #bfccd6;
+  --gerrit-change-background-warning: #d9822b;
+  --gerrit-change-background-danger: #f55656;
+
+  --gerrit-change-padding: 10px;
+}
+
+.gerrit-change {
+  height: 50px;
+  padding: var(--gerrit-change-padding);
+  display: flex;
+  flex-direction: row;
+}
+
+.gerrit-change span {
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+
+.gerrit-change span.gerrit-change-name {
+  flex: 1;
+}
+
+.gerrit-change-normal {
+  color: #182026;
+  background: var(--gerrit-change-background-normal);
+}
+.gerrit-change-warning {
+  background: var(--gerrit-change-background-warning);
+}
+.gerrit-change-danger {
+  background: var(--gerrit-change-background-danger);
+}

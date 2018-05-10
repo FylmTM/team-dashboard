@@ -48,21 +48,22 @@ function fetchData(store, url, actionType) {
 
 function loadTeamData(store) {
   console.log('Load team data');
-  fetchData(store, `/team/${teamName}`, 'team/load');
+  fetchData(store, `/api/team/${teamName}`, 'team/load');
 }
 
 function loadJiraData(store) {
   console.log('Load JIRA data');
-  fetchData(store, `/team/${teamName}/jira`, 'jira/load');
+  fetchData(store, `/api/team/${teamName}/jira`, 'jira/load');
 }
 
 function loadJenkinsData(store) {
   console.log('Load Jenkins data');
-  fetchData(store, `/team/${teamName}/jenkins`, 'jenkins/load');
+  fetchData(store, `/api/team/${teamName}/jenkins`, 'jenkins/load');
 }
 
 function loadGerritData(store) {
   console.log('Load Gerrit data');
+  fetchData(store, `/api/team/${teamName}/gerrit`, 'gerrit/load');
 }
 
 function loadData(store) {
@@ -87,7 +88,7 @@ function startPolling(store) {
   }, JENKINS_POLL_INTERVAL);
 
   setInterval(() => {
-    loadJenkinsData(store);
+    loadGerritData(store);
   }, GERRIT_POLL_INTERNVAL);
 }
 

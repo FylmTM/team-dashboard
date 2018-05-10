@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("/team/{teamName}/jenkins")
+@RequestMapping("/api/team/{teamName}/jenkins")
 class JenkinsController(
         val teamConfigurationService: TeamConfigurationService,
         val jenkinsService: JenkinsService

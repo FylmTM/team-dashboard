@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import JenkinsJobs from './jenkins/JenkinsJobsLoaded';
 import JiraBoard from './jira/JiraBoardLoaded';
+import GerritChanges from './gerrit/GerritChangesLoaded';
 
 import './App.css';
 
@@ -23,9 +24,7 @@ class App extends Component {
             </div>
             <div className="grid-block">
               <h2 key="jenkins-title">Gerrit</h2>
-              <p>
-                <b>WIP</b>
-              </p>
+              <GerritChanges />
             </div>
           </div>
         </div>

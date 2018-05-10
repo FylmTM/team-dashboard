@@ -1,0 +1,2 @@
+export const GERRIT_CHANGE_AGE_WARNING = 2;
+export const GERRIT_CHANGE_AGE_DANGER = 4;

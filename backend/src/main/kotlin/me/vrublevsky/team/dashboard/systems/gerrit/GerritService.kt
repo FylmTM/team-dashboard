@@ -19,6 +19,7 @@ class GerritService(
                             .stream()
                             .map { change ->
                                 GerritChange(
+                                        change.id,
                                         repository.simpleName,
                                         change.subject,
                                         change.created,

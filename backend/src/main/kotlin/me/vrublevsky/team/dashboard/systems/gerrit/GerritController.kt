@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("/team/{teamName}/gerrit")
+@RequestMapping("/api/team/{teamName}/gerrit")
 class GerritController(
         val teamConfigurationService: TeamConfigurationService,
         val gerritService: GerritService

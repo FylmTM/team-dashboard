@@ -1,8 +1,5 @@
-import data from './mock-data/gerrit';
-
 const initialState = {
-  loaded: true,
-  data,
+  loaded: false,
 };
 
 export default function gerrit(state = initialState, action) {
