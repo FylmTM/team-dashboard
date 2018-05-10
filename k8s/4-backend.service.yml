@@ -1,0 +1,13 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: neueda-team-dashboard
+  name: team-dashboard-backend
+spec:
+  ports:
+  - name: http-api
+    port: 80
+    targetPort: 8080
+  selector:
+    app: team-dashboard-backend

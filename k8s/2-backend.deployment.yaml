@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: neueda-team-dashboard
+  name: team-dashboard-backend
+  labels:
+    app: team-dashboard-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: team-dashboard-backend
+  template:
+    metadata:
+      labels:
+        app: team-dashboard-backend
+    spec:
+      containers:
+      - image: fylmtm/team-dashboard-backend:0.1.0
+        name: team-dashboard-backend
+        ports:
+        - name: http-api
+          containerPort: 8080
+        volumeMounts:
+          - name: team-dashboard-config
+            mountPath: /application.yml
+            subPath: application.yml
+      volumes:
+        - name: team-dashboard-config
+          configMap:
+            name: team-dashboard-config

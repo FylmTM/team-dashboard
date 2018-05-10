@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: neueda-team-dashboard
+  name: team-dashboard-frontend
+  labels:
+    app: team-dashboard-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: team-dashboard-frontend
+  template:
+    metadata:
+      labels:
+        app: team-dashboard-frontend
+    spec:
+      containers:
+      - image: fylmtm/team-dashboard-frontend:0.1.0
+        name: team-dashboard-frontend
+        ports:
+        - name: http-api
+          containerPort: 80
