@@ -3,7 +3,7 @@ package me.vrublevsky.team.dashboard.systems.jira
 import net.rcarz.jiraclient.ChangeLogItem
 import java.util.*
 
-data class JiraResponse(
+data class JiraBoard(
         val sprint: JiraSprint,
         val issues: List<JiraIssue>
 )

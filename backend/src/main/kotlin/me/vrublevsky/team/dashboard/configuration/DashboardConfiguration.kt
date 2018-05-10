@@ -66,6 +66,9 @@ class Team {
     @Valid
     var jira: TeamJiraConfiguration = TeamJiraConfiguration()
 
+    @Valid
+    var jenkins: TeamJenkinsConfiguration = TeamJenkinsConfiguration()
+
     @NotEmpty
     var members: List<Member> = ArrayList()
 }
@@ -74,6 +77,12 @@ class TeamJiraConfiguration {
 
     @NotEmpty
     var boardId: Long = 0
+}
+
+class TeamJenkinsConfiguration {
+
+    @NotEmpty
+    var jobs: List<String> = ArrayList()
 }
 
 class Member {

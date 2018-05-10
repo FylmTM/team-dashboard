@@ -13,7 +13,7 @@ class JiraService(
         val jiraClient: JiraClient
 ) {
 
-    fun getData(team: Team): JiraResponse {
+    fun getData(team: Team): JiraBoard {
         val board = jiraAgileClient.getBoard(team.jira.boardId)
 
         val sprint = board.sprints.stream()
@@ -65,7 +65,7 @@ class JiraService(
                 }
                 .collect(Collectors.toList())
 
-        return JiraResponse(
+        return JiraBoard(
                 JiraSprint(
                         sprint.name
                 ),
