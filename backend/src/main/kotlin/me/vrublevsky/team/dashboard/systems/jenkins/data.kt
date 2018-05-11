@@ -5,8 +5,7 @@ import com.offbytwo.jenkins.model.JobWithDetails
 
 data class JenkinsJob(
         val name: String,
-        val previousBuild: JenkinsJobBuild?,
-        val currentBuild: JenkinsJobBuild?
+        val lastBuild: JenkinsJobBuild
 ) {
     companion object {
         fun map(job: JobWithDetails?): JenkinsJob {
@@ -14,14 +13,9 @@ data class JenkinsJob(
                 throw IllegalStateException("Job is not found")
             }
 
-            val builds = job.builds
-            val currentBuild = if (builds.size >= 1) builds[0] else null
-            val previousBuild = if (builds.size >= 2) builds[1] else null
-
             return JenkinsJob(
                     job.name,
-                    JenkinsJobBuild.map(currentBuild),
-                    JenkinsJobBuild.map(previousBuild)
+                    JenkinsJobBuild.map(job.lastBuild)
             )
         }
     }
@@ -35,11 +29,7 @@ data class JenkinsJobBuild(
         val isRunning: Boolean
 ) {
     companion object {
-        fun map(build: Build?): JenkinsJobBuild? {
-            if (build == null) {
-                return null
-            }
-
+        fun map(build: Build): JenkinsJobBuild {
             return JenkinsJobBuild(
                     build.number,
                     build.details().duration,

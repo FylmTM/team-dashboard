@@ -1,3 +1,5 @@
+import { showError } from './toast';
+
 const TEAM_POLL_INTERNVAL = 5 * 60 * 1000;
 const GERRIT_POLL_INTERNVAL = 5 * 60 * 1000;
 const JIRA_POLL_INTERNVAL = 5 * 60 * 1000;
@@ -42,6 +44,9 @@ function fetchData(store, url, actionType) {
         store.dispatch({ type: actionType, data: result.data });
       } else {
         console.error(`Error loading data for ${url}`, result);
+        showError(
+          `Error loading data for ${url}. Response: ${JSON.stringify(result)}`
+        );
       }
     });
 }

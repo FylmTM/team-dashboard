@@ -20,35 +20,13 @@ function determineBuildStatus(build) {
   return jobStatus.UNKNOWN;
 }
 
-function determineJobStatus(job) {
-  const currentBuildStatus = determineBuildStatus(job.currentBuild);
-  if (currentBuildStatus !== jobStatus.UNKNOWN) {
-    return currentBuildStatus;
-  }
-
-  const previousBuildStatus = determineBuildStatus(job.previousBuild);
-  if (previousBuildStatus !== jobStatus.UNKNOWN) {
-    return previousBuildStatus;
-  }
-
-  return jobStatus.UNKNOWN;
-}
-
-function determineJobIsRunning(job) {
-  return job.currentBuild != null && job.currentBuild.isRunning;
-}
-
 function determineJobRunningDuration(job) {
-  if (determineJobIsRunning(job)) {
-    const duration = moment.duration(job.currentBuild.duration);
+  if (job.lastBuild.isRunning) {
+    const duration = moment.duration(job.lastBuild.duration);
     return `${duration.minutes()}m ${duration.seconds()}s`;
   }
 
   return '0:0:0';
-}
-
-function determineJobBuildNumber(job) {
-  return job.currentBuild ? job.currentBuild.number : null;
 }
 
 export const jenkinsBuildDataSelector = createSelector(
@@ -57,10 +35,10 @@ export const jenkinsBuildDataSelector = createSelector(
     jenkins.map(job => {
       return {
         name: job.name,
-        status: determineJobStatus(job),
-        isRunning: determineJobIsRunning(job),
+        status: determineBuildStatus(job.lastBuild),
+        isRunning: job.lastBuild.isRunning,
         duration: determineJobRunningDuration(job),
-        buildNumber: determineJobBuildNumber(job),
+        buildNumber: job.lastBuild.number,
       };
     })
 );
