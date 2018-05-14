@@ -32,6 +32,9 @@ class GerritConfiguration {
 
     @NotEmpty
     var password: String = ""
+
+    @NotEmpty
+    var updateRate: Long = 0
 }
 
 class JiraConfiguration {
@@ -44,6 +47,9 @@ class JiraConfiguration {
 
     @NotEmpty
     var password: String = ""
+
+    @NotEmpty
+    var updateRate: Long = 0
 }
 
 class JenkinsConfiguration {
@@ -56,6 +62,9 @@ class JenkinsConfiguration {
 
     @NotEmpty
     var password: String = ""
+
+    @NotEmpty
+    var updateRate: Long = 0
 }
 
 class Team {

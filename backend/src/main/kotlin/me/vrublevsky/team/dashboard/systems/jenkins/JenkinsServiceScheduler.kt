@@ -13,7 +13,7 @@ class JenkinsServiceScheduler(
         val LOGGER = logger()
     }
 
-    @Scheduled(fixedRate = 5 * 60 * 1000)
+    @Scheduled(fixedRateString = "\${dashboard.jenkins.updateRate}")
     fun updateJenkinsData() {
         LOGGER.info("Fetch Jenkins data")
         jenkinsService.fetchData()

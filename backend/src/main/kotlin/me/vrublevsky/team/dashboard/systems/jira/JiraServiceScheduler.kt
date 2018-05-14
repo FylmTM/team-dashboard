@@ -13,7 +13,7 @@ class JiraServiceScheduler(
         val LOGGER = logger()
     }
 
-    @Scheduled(fixedRate = 5 * 60 * 1000)
+    @Scheduled(fixedRateString = "\${dashboard.jira.updateRate}")
     fun updateJiraData() {
         LOGGER.info("Fetch JIRA data")
         jiraService.fetchData()

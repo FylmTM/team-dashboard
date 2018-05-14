@@ -13,7 +13,7 @@ class GerritServiceScheduler(
         val LOGGER = logger()
     }
 
-    @Scheduled(fixedRate = 2 * 60 * 1000)
+    @Scheduled(fixedRateString = "\${dashboard.gerrit.updateRate}")
     fun updateGerritData() {
         LOGGER.info("Fetch Gerrit data")
         gerritService.fetchData()
