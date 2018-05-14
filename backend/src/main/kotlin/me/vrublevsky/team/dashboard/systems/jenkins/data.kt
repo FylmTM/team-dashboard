@@ -1,7 +1,9 @@
 package me.vrublevsky.team.dashboard.systems.jenkins
 
 import com.offbytwo.jenkins.model.Build
+import com.offbytwo.jenkins.model.BuildResult
 import com.offbytwo.jenkins.model.JobWithDetails
+import java.util.*
 
 data class JenkinsJob(
         val name: String,
@@ -34,7 +36,9 @@ data class JenkinsJobBuild(
                     build.number,
                     build.details().duration,
                     build.details().estimatedDuration,
-                    build.details().result.toString(),
+                    Optional.ofNullable(build.details().result)
+                            .orElse(BuildResult.UNKNOWN)
+                            .toString(),
                     build.details().isBuilding
             )
         }

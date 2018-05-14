@@ -1,9 +1,9 @@
 import { showError } from './toast';
 
-const TEAM_POLL_INTERNVAL = 5 * 60 * 1000;
-const GERRIT_POLL_INTERNVAL = 5 * 60 * 1000;
-const JIRA_POLL_INTERNVAL = 5 * 60 * 1000;
-const JENKINS_POLL_INTERVAL = 5 * 60 * 1000;
+const TEAM_POLL_INTERNVAL = 5 * 1000;
+const GERRIT_POLL_INTERNVAL = 5 * 1000;
+const JIRA_POLL_INTERNVAL = 5 * 1000;
+const JENKINS_POLL_INTERVAL = 5 * 1000;
 
 let teamName = '';
 
