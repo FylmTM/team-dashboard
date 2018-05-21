@@ -35,10 +35,12 @@ export const jenkinsBuildDataSelector = createSelector(
     jenkins.map(job => {
       return {
         name: job.name,
+        url: job.url,
         status: determineBuildStatus(job.lastBuild),
         isRunning: job.lastBuild.running,
         duration: determineJobRunningDuration(job),
         buildNumber: job.lastBuild.number,
+        buildUrl: job.lastBuild.url,
       };
     })
 );

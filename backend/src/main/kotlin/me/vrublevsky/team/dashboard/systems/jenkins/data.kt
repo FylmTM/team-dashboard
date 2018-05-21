@@ -7,6 +7,7 @@ import java.util.*
 
 data class JenkinsJob(
         val name: String,
+        val url: String,
         val lastBuild: JenkinsJobBuild
 ) {
     companion object {
@@ -17,6 +18,7 @@ data class JenkinsJob(
 
             return JenkinsJob(
                     job.name,
+                    job.url,
                     JenkinsJobBuild.map(job.lastBuild)
             )
         }
@@ -24,6 +26,7 @@ data class JenkinsJob(
 }
 
 data class JenkinsJobBuild(
+        val url: String,
         val number: Int,
         val duration: Long,
         val estimatedDuration: Long,
@@ -33,6 +36,7 @@ data class JenkinsJobBuild(
     companion object {
         fun map(build: Build): JenkinsJobBuild {
             return JenkinsJobBuild(
+                    build.url,
                     build.number,
                     build.details().duration,
                     build.details().estimatedDuration,

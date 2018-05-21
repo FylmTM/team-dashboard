@@ -1,8 +1,10 @@
 {
   "data": [
     {
+      "url": "http://example.com",
       "name": "project-twinky_Release",
       "lastBuild": {
+        "url": "http://example.com",
         "number": 200,
         "duration": 12840,
         "estimatedDuration": 11591,
@@ -11,8 +13,10 @@
       }
     },
     {
+      "url": "http://example.com",
       "name": "project-twinky_Staging",
       "lastBuild": {
+        "url": "http://example.com",
         "number": 220,
         "duration": 91436,
         "estimatedDuration": 137020,
@@ -21,18 +25,22 @@
       }
     },
     {
+      "url": "http://example.com",
       "name": "project-calipso_Release",
       "lastBuild": {
+        "url": "http://example.com",
         "number": 10,
         "duration": 246004,
         "estimatedDuration": 224051,
-        "status": "SUCCESS",
+        "status": "UNKNOWN",
         "running": false
       }
     },
     {
+      "url": "http://example.com",
       "name": "project-tusko_Release",
       "lastBuild": {
+        "url": "http://example.com",
         "number": 27,
         "duration": 264035,
         "estimatedDuration": 253086,
@@ -41,8 +49,10 @@
       }
     },
     {
+      "url": "http://example.com",
       "name": "project-wow_Release",
       "lastBuild": {
+        "url": "http://example.com",
         "number": 25,
         "duration": 241132,
         "estimatedDuration": 226201,
@@ -51,8 +61,10 @@
       }
     },
     {
+      "url": "http://example.com",
       "name": "project-amon-stub_Release",
       "lastBuild": {
+        "url": "http://example.com",
         "number": 3,
         "duration": 115629,
         "estimatedDuration": 425968,

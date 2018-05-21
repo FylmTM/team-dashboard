@@ -1,42 +1,51 @@
 :root {
-    --jenkins-job-background-success: #0D8050;
-    --jenkins-job-background-failure: #C23030;
-    --jenkins-job-background-unknown: #738694;
+  --jenkins-job-background-success: #0d8050;
+  --jenkins-job-background-failure: #c23030;
+  --jenkins-job-background-unknown: #738694;
 
-    --jenkins-job-padding: 10px;
+  --jenkins-job-padding: 10px;
 }
 
 .jenkins-job {
-    height: 50px;
-    padding: var(--jenkins-job-padding);
-    display: flex;
-    flex-direction: row;
+  height: 50px;
+  padding: var(--jenkins-job-padding);
+  display: flex;
+  flex-direction: row;
 }
 
 .jenkins-job span {
-    display: flex;
-    height: 100%;
-    align-items: center;
+  display: flex;
+  height: 100%;
+  align-items: center;
 }
 
 .jenkins-job span.jenkins-job-name {
-    flex: 1;
+  flex: 1;
 }
 
 .jenkins-job span.jenkins-job-duration {
-    display: flex;
+  display: flex;
 }
 
 .jenkins-job-duration-text {
-    width: 60px;
+  width: 60px;
 }
 
 .jenkins-job-success {
-    background: var(--jenkins-job-background-success);
+  background: var(--jenkins-job-background-success);
 }
 .jenkins-job-failure {
-    background: var(--jenkins-job-background-failure);
+  background: var(--jenkins-job-background-failure);
 }
 .jenkins-job-unknown {
-    background: var(--jenkins-job-background-unknown);
+  background: var(--jenkins-job-background-unknown);
+}
+.jenkins-job-success a {
+  color: #ffffff !important;
+}
+.jenkins-job-failure a {
+  color: #ffffff !important;
+}
+.jenkins-job-unknown a {
+  color: #ffffff !important;
 }
