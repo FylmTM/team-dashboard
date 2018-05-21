@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: neueda-team-dashboard
+  name: team-dashboard-config
+data:
+  application.yml: |
+    dashboard:
+      jira:
+        host: https://jira
+        username: dmitry
+        password: password
+      gerrit:
+        host: https://gerrit
+        username: dmitry
+        password: password
+      jenkins:
+        host: https://jenkins/jenkins/
+        username: dmitry
+        password: password
+      teams:
+        - name: MyTeam
+          jira:
+            boardId: 1234
+          jenkins:
+            jobs:
+              - job1_name
+              - job2_name
+          gerrit:
+            repositories:
+              - name: namespace/project/artifact1
+                simpleName: artifact1
+              - name: namespace/project/artifact1
+                simpleName: artifact1
+          members:
+            - name: Dmitry Vrublevsky First
+              username: dmitry1
+            - name: Dmitry Vrublevsky Second
+              username: dmitry2

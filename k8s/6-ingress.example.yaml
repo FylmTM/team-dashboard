@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  namespace: neueda-team-dashboard
+  name: team-dashboard-ingress
+#  annotations:
+#    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: neueda-team-dashboard.example.com
+    http:
+      paths:
+      - path: /api
+        backend:
+          serviceName: team-dashboard-backend
+          servicePort: 80
+      - path: /
+        backend:
+          serviceName: team-dashboard-frontend
+          servicePort: 80
