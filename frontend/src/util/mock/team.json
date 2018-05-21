@@ -1,0 +1,37 @@
+{
+  "data": {
+    "name": "MyTeam",
+    "jira": {
+      "boardId": 1
+    },
+    "jenkins": {
+      "jobs": [
+        "project-twinky_Release",
+        "project-twinky_Staging",
+        "project-calipso_Release",
+        "project-tusko_Release",
+        "project-wow_Release",
+        "project-amon-stub_Release"
+      ]
+    },
+    "gerrit": {
+      "repositories": [
+        {
+          "name": "project-belha",
+          "simpleName": "project-belha"
+        }
+      ]
+    },
+    "members": [
+      {
+        "name": "Dmitry Vrublevsky",
+        "username": "dmitry"
+      },
+      {
+        "name": "Caroline Wolf",
+        "username": "caroline"
+      }
+    ]
+  },
+  "success": true
+}

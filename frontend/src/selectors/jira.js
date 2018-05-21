@@ -37,7 +37,6 @@ function enrichWithAge(issue) {
       .find(transition => transition.from === 'To Do');
   }
 
-  // debugger;
   return {
     ...issue,
     age: calculateBusinessDays(transition.created),

@@ -21,7 +21,7 @@ function determineBuildStatus(build) {
 }
 
 function determineJobRunningDuration(job) {
-  if (job.lastBuild.isRunning) {
+  if (job.lastBuild.running) {
     const duration = moment.duration(job.lastBuild.duration);
     return `${duration.minutes()}m ${duration.seconds()}s`;
   }
@@ -36,7 +36,7 @@ export const jenkinsBuildDataSelector = createSelector(
       return {
         name: job.name,
         status: determineBuildStatus(job.lastBuild),
-        isRunning: job.lastBuild.isRunning,
+        isRunning: job.lastBuild.running,
         duration: determineJobRunningDuration(job),
         buildNumber: job.lastBuild.number,
       };

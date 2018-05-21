@@ -1,0 +1,65 @@
+{
+  "data": [
+    {
+      "name": "project-twinky_Release",
+      "lastBuild": {
+        "number": 200,
+        "duration": 12840,
+        "estimatedDuration": 11591,
+        "status": "SUCCESS",
+        "running": false
+      }
+    },
+    {
+      "name": "project-twinky_Staging",
+      "lastBuild": {
+        "number": 220,
+        "duration": 91436,
+        "estimatedDuration": 137020,
+        "status": "SUCCESS",
+        "running": true
+      }
+    },
+    {
+      "name": "project-calipso_Release",
+      "lastBuild": {
+        "number": 10,
+        "duration": 246004,
+        "estimatedDuration": 224051,
+        "status": "SUCCESS",
+        "running": false
+      }
+    },
+    {
+      "name": "project-tusko_Release",
+      "lastBuild": {
+        "number": 27,
+        "duration": 264035,
+        "estimatedDuration": 253086,
+        "status": "SUCCESS",
+        "running": false
+      }
+    },
+    {
+      "name": "project-wow_Release",
+      "lastBuild": {
+        "number": 25,
+        "duration": 241132,
+        "estimatedDuration": 226201,
+        "status": "SUCCESS",
+        "running": false
+      }
+    },
+    {
+      "name": "project-amon-stub_Release",
+      "lastBuild": {
+        "number": 3,
+        "duration": 115629,
+        "estimatedDuration": 425968,
+        "status": "FAILURE",
+        "running": false
+      }
+    }
+  ],
+  "success": true
+}

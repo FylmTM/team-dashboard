@@ -1,0 +1,129 @@
+{
+  "data": {
+    "sprint": {
+      "name": "Spring 1.0"
+    },
+    "issues": [
+      {
+        "key": "JIRA-1",
+        "summary": "Story title 1",
+        "assigneeUsername": "dmitry",
+        "type": {
+          "name": "Story",
+          "iconUrl":
+            "https://jira.com/secure/viewavatar?size=xsmall&avatarId=28025&avatarType=issuetype"
+        },
+        "status": {
+          "name": "In Progress",
+          "iconUrl": "https://jira.com/images/icons/statuses/generic.png"
+        },
+        "priority": {
+          "name": "Minor",
+          "iconUrl": "https://jira.com/images/icons/priorities/minor.svg"
+        },
+        "transitions": [
+          {
+            "created": "2018-04-09T13:37:58.000+0000",
+            "from": "Open",
+            "to": "In Progress"
+          }
+        ]
+      },
+      {
+        "key": "JIRA-1",
+        "summary": "Story title 2",
+        "assigneeUsername": "caroline",
+        "type": {
+          "name": "Story",
+          "iconUrl":
+            "https://jira.com/secure/viewavatar?size=xsmall&avatarId=28025&avatarType=issuetype"
+        },
+        "status": {
+          "name": "Blocked",
+          "iconUrl": "https://jira.com/images/icons/statuses/generic.png"
+        },
+        "priority": {
+          "name": "Minor",
+          "iconUrl": "https://jira.com/images/icons/priorities/minor.svg"
+        },
+        "transitions": [
+          {
+            "created": "2018-04-09T13:37:58.000+0000",
+            "from": "Open",
+            "to": "In Progress"
+          }
+        ]
+      },
+      {
+        "key": "JIRA-1",
+        "summary": "Story title 2",
+        "assigneeUsername": "caroline",
+        "type": {
+          "name": "Story",
+          "iconUrl":
+            "https://jira.com/secure/viewavatar?size=xsmall&avatarId=28025&avatarType=issuetype"
+        },
+        "status": {
+          "name": "Review",
+          "iconUrl": "https://jira.com/images/icons/statuses/generic.png"
+        },
+        "priority": {
+          "name": "Minor",
+          "iconUrl": "https://jira.com/images/icons/priorities/minor.svg"
+        },
+        "transitions": [
+          {
+            "created": "2018-04-09T13:37:58.000+0000",
+            "from": "Open",
+            "to": "In Progress"
+          }
+        ]
+      },
+      {
+        "key": "JIRA-1",
+        "summary": "Story title 2",
+        "assigneeUsername": null,
+        "type": {
+          "name": "Story",
+          "iconUrl":
+            "https://jira.com/secure/viewavatar?size=xsmall&avatarId=28025&avatarType=issuetype"
+        },
+        "status": {
+          "name": "Open",
+          "iconUrl": "https://jira.com/images/icons/statuses/generic.png"
+        },
+        "priority": {
+          "name": "Minor",
+          "iconUrl": "https://jira.com/images/icons/priorities/minor.svg"
+        },
+        "transitions": []
+      },
+      {
+        "key": "JIRA-1",
+        "summary": "Story title 1",
+        "assigneeUsername": "dmitry",
+        "type": {
+          "name": "Story",
+          "iconUrl":
+            "https://jira.com/secure/viewavatar?size=xsmall&avatarId=28025&avatarType=issuetype"
+        },
+        "status": {
+          "name": "Done",
+          "iconUrl": "https://jira.com/images/icons/statuses/generic.png"
+        },
+        "priority": {
+          "name": "Minor",
+          "iconUrl": "https://jira.com/images/icons/priorities/minor.svg"
+        },
+        "transitions": [
+          {
+            "created": "2018-04-09T13:37:58.000+0000",
+            "from": "Open",
+            "to": "In Progress"
+          }
+        ]
+      }
+    ]
+  },
+  "success": true
+}
