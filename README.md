@@ -4,18 +4,20 @@
 
 Dashboard for teams, for unified view of:
 
-- JIRA Sprint Progress
-- Jenkins jobs
-- Gerrit reviews
+* JIRA Sprint Progress
+* Jenkins jobs
+* Gerrit reviews
+
+![dashboard](./dashboard.png)
 
 ## Features
 
-- Jira board
-  - In Progress issues
-  - Age color coding 
-- Jenkins job list with their statuses
-- Open gerrit reviews
-  - Age color coding
+* Jira board
+  * In Progress issues
+  * Age color coding
+* Jenkins job list with their statuses
+* Open gerrit reviews
+  * Age color coding
 
 ## Deployment
 
@@ -23,8 +25,8 @@ Dashboard for teams, for unified view of:
 
 Container available here:
 
-- https://hub.docker.com/r/fylmtm/team-dashboard-backend/
-- https://hub.docker.com/r/fylmtm/team-dashboard-frontend/
+* https://hub.docker.com/r/fylmtm/team-dashboard-backend/
+* https://hub.docker.com/r/fylmtm/team-dashboard-frontend/
 
 ### Kubernetes
 
@@ -34,8 +36,8 @@ Manifests are located in `k8s/` folder.
 
 Scripts:
 
-- `bin/kube-up.sh` - deploy to K8s cluster
-- `bin/kube-down.sh` - undeploy from K8s cluster
+* `bin/kube-up.sh` - deploy to K8s cluster
+* `bin/kube-down.sh` - undeploy from K8s cluster
 
 ## Build Prerequisites
 
