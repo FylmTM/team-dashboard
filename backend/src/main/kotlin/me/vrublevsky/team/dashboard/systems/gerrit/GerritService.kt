@@ -31,6 +31,7 @@ class GerritService(
                                 .stream()
                                 .map { change ->
                                     GerritChange(
+                                            "${dashboardConfiguration.gerrit.host}/${change._number}",
                                             change.id,
                                             repository.simpleName,
                                             change.subject,

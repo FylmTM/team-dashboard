@@ -17,9 +17,18 @@
   color: #182026;
   background: var(--gerrit-change-background-normal);
 }
+.gerrit-change-normal a {
+  color: #182026 !important;
+}
 .gerrit-change-warning {
   background: var(--gerrit-change-background-warning);
 }
+.gerrit-change-warning a {
+  color: #ffffff !important;
+}
 .gerrit-change-danger {
   background: var(--gerrit-change-background-danger);
+}
+.gerrit-change-danger a {
+  color: #ffffff !important;
 }

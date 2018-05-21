@@ -4,7 +4,7 @@ import * as gerritChange from '../../constants/gerritChange';
 import './GerritChange.css';
 
 export default function GerritChange({
-  change: { subject, age, project, insertions, deletions },
+  change: { url, subject, age, project, insertions, deletions },
 }) {
   let ageLevel = 'normal';
   if (age >= gerritChange.GERRIT_CHANGE_AGE_WARNING) {
@@ -24,7 +24,7 @@ export default function GerritChange({
         </span>
       </span>
       <br />
-      <span>{subject}</span>
+      <a href={url}>{subject}</a>
     </div>
   );
 }

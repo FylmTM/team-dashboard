@@ -17,7 +17,7 @@ export default function IssueTag({ issue }) {
 
   return (
     <span className={`jira-issue pt-tag pt-large pt-intent-${ageLevel}`}>
-      <a href={issue.url} target="_blank">
+      <a href={issue.url}>
         {age != null && <b>[{age}d]</b>} [{key}] {summary}
       </a>
     </span>

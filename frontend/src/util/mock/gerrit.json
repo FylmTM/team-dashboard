@@ -1,6 +1,7 @@
 {
   "data": [
     {
+      "url": "http://example.com",
       "id": "Ida1a27959e17223c68c9199c818f1bea57e9dce2",
       "project": "project-belha",
       "subject": "[JIRA-1] Text1",
@@ -10,6 +11,7 @@
       "deletions": 125
     },
     {
+      "url": "http://example.com",
       "id": "Ib136930863c50f24b7fe14eeaff5412237edc9c3",
       "project": "project-twinky",
       "subject": "[JIRA-2] Text2",
@@ -19,6 +21,7 @@
       "deletions": 52
     },
     {
+      "url": "http://example.com",
       "id": "Ib45819ef160379708e6101e16f474b9c3d601629",
       "project": "project-twinky",
       "subject": "[JIRA-3] Text3",
@@ -28,6 +31,7 @@
       "deletions": 979
     },
     {
+      "url": "http://example.com",
       "id": "Ia222a706d63658885a7419d9c50348a5919b6ee8",
       "project": "project-twinky",
       "subject": "[JIRA-4] Text4",
@@ -37,6 +41,7 @@
       "deletions": 592
     },
     {
+      "url": "http://example.com",
       "id": "I3a9db60cb45db0ffc2d82ed182ef2a56c5db186c",
       "project": "project-kusto",
       "subject": "JIRA-5 Text5",
@@ -46,6 +51,7 @@
       "deletions": 6
     },
     {
+      "url": "http://example.com",
       "id": "I057f865f9ce43cc8ef67abe31b856601edfc0f52",
       "project": "project-kusto",
       "subject": "JIRA-6 Text6",
@@ -55,6 +61,7 @@
       "deletions": 135
     },
     {
+      "url": "http://example.com",
       "id": "I8acbfcda8260221902a0ed02377b5b9a8614e8be",
       "project": "project-kusto",
       "subject": " [JIRA-7] Text7",
@@ -64,6 +71,7 @@
       "deletions": 5
     },
     {
+      "url": "http://example.com",
       "id": "Ib8bb0b1ba71b1b8a23e78b0b579596adea3e0b3e",
       "project": "project-calipso",
       "subject": "No Jira, Text8",
@@ -73,6 +81,7 @@
       "deletions": 0
     },
     {
+      "url": "http://example.com",
       "id": "I9f7cf9ed34dd20adb0ec5796b7bdf5331ca73d05",
       "project": "project-calipso",
       "subject": "No Jira, Text9",
