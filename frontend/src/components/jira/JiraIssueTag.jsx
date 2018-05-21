@@ -2,6 +2,8 @@ import React from 'react';
 
 import * as jiraIssue from '../../constants/jiraIssue';
 
+import './JiraIssueTag.css';
+
 export default function IssueTag({ issue }) {
   const { key, summary, age } = issue;
 
@@ -15,7 +17,9 @@ export default function IssueTag({ issue }) {
 
   return (
     <span className={`jira-issue pt-tag pt-large pt-intent-${ageLevel}`}>
-      {age != null && <b>[{age}d]</b>} [{key}] {summary}
+      <a href={issue.url} target="_blank">
+        {age != null && <b>[{age}d]</b>} [{key}] {summary}
+      </a>
     </span>
   );
 }

@@ -42,6 +42,7 @@ class JiraService(
                                 }
                                 .map { issue ->
                                     JiraIssue(
+                                            issue.url,
                                             issue.key,
                                             issue.summary,
                                             Optional.ofNullable(issue.assignee)

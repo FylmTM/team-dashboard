@@ -13,6 +13,7 @@ data class JiraSprint(
 )
 
 data class JiraIssue(
+        val url: String,
         val key: String,
         val summary: String,
         val assigneeUsername: String,

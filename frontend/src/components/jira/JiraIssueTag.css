@@ -1,0 +1,11 @@
+.jira-issue.pt-intent-normal a {
+  color: #182026;
+}
+
+.jira-issue.pt-intent-warning a {
+  color: #ffffff;
+}
+
+.jira-issue.pt-intent-danger a {
+  color: #ffffff;
+}

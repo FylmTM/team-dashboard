@@ -5,6 +5,7 @@
     },
     "issues": [
       {
+        "url": "http://example.com",
         "key": "JIRA-1",
         "summary": "Story title 1",
         "assigneeUsername": "dmitry",
@@ -30,7 +31,8 @@
         ]
       },
       {
-        "key": "JIRA-1",
+        "url": "http://example.com",
+        "key": "JIRA-2",
         "summary": "Story title 2",
         "assigneeUsername": "caroline",
         "type": {
@@ -55,7 +57,8 @@
         ]
       },
       {
-        "key": "JIRA-1",
+        "url": "http://example.com",
+        "key": "JIRA-3",
         "summary": "Story title 2",
         "assigneeUsername": "caroline",
         "type": {
@@ -80,9 +83,10 @@
         ]
       },
       {
-        "key": "JIRA-1",
+        "url": "http://example.com",
+        "key": "JIRA-4",
         "summary": "Story title 2",
-        "assigneeUsername": null,
+        "assigneeUsername": "none",
         "type": {
           "name": "Story",
           "iconUrl":
@@ -99,7 +103,8 @@
         "transitions": []
       },
       {
-        "key": "JIRA-1",
+        "url": "http://example.com",
+        "key": "JIRA-5",
         "summary": "Story title 1",
         "assigneeUsername": "dmitry",
         "type": {
@@ -124,7 +129,8 @@
         ]
       },
       {
-        "key": "JIRA-1",
+        "url": "http://example.com",
+        "key": "JIRA-6",
         "summary": "Story title 1",
         "assigneeUsername": "dmitry",
         "type": {
