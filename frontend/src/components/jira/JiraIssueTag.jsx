@@ -6,10 +6,10 @@ export default function IssueTag({ issue }) {
   const { key, summary, age } = issue;
 
   let ageLevel = 'normal';
-  if (age >= jiraIssue.ISSUE_AGE_WARNING) {
+  if (age && age >= jiraIssue.ISSUE_AGE_WARNING) {
     ageLevel = 'warning';
   }
-  if (age >= jiraIssue.ISSUE_AGE_DANGER) {
+  if (age && age >= jiraIssue.ISSUE_AGE_DANGER) {
     ageLevel = 'danger';
   }
 

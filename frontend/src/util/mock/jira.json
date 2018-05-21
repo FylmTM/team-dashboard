@@ -1,7 +1,7 @@
 {
   "data": {
     "sprint": {
-      "name": "Spring 1.0"
+      "name": "Sprint 1.0"
     },
     "issues": [
       {
@@ -97,6 +97,31 @@
           "iconUrl": "https://jira.com/images/icons/priorities/minor.svg"
         },
         "transitions": []
+      },
+      {
+        "key": "JIRA-1",
+        "summary": "Story title 1",
+        "assigneeUsername": "dmitry",
+        "type": {
+          "name": "Story",
+          "iconUrl":
+            "https://jira.com/secure/viewavatar?size=xsmall&avatarId=28025&avatarType=issuetype"
+        },
+        "status": {
+          "name": "Done",
+          "iconUrl": "https://jira.com/images/icons/statuses/generic.png"
+        },
+        "priority": {
+          "name": "Minor",
+          "iconUrl": "https://jira.com/images/icons/priorities/minor.svg"
+        },
+        "transitions": [
+          {
+            "created": "2018-04-09T13:37:58.000+0000",
+            "from": "Open",
+            "to": "In Progress"
+          }
+        ]
       },
       {
         "key": "JIRA-1",

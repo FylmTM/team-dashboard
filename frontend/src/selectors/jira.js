@@ -26,6 +26,14 @@ function filterIssuesReview(username, issues) {
   return issues.filter(belongToUser(username)).filter(hasStatus(['Review']));
 }
 
+function filterIssuesOpen(issues) {
+  return issues.filter(hasStatus(['Open']));
+}
+
+function filterIssuesDone(issues) {
+  return issues.filter(hasStatus(['Done']));
+}
+
 function enrichWithAge(issue) {
   let transition = issue.transitions
     .reverse()
@@ -48,6 +56,10 @@ export const jiraDataSelector = createSelector(
   jiraSelector,
   (team, jira) => ({
     sprintName: jira.sprint.name,
+    issues: {
+      open: filterIssuesOpen(jira.issues),
+      done: filterIssuesDone(jira.issues),
+    },
     members: team.members.map(member => ({
       name: member.name,
       issues: {
