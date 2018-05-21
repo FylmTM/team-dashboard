@@ -6,7 +6,7 @@ import configureStore from './store/configureStore';
 import '@blueprintjs/core/lib/css/blueprint.css';
 
 import App from './components/App';
-import { fetchAndPollData } from './util/data';
+import fetchAndPollData from './util/data';
 import './index.css';
 
 const store = configureStore();
