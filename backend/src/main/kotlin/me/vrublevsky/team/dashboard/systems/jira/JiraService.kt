@@ -42,7 +42,7 @@ class JiraService(
                                 }
                                 .map { issue ->
                                     JiraIssue(
-                                            issue.url,
+                                            "${dashboardConfiguration.jira.host}/browse/${issue.key}",
                                             issue.key,
                                             issue.summary,
                                             Optional.ofNullable(issue.assignee)

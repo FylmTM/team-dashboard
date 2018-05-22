@@ -12,6 +12,9 @@ function updateTeamName() {
     window.location.hash.indexOf('#') + 1
   );
 
+  if (!teamName) {
+    showError('Team name is not specified. Add #<TeamName> to URL.');
+  }
   console.log(`Team name: ${teamName}`);
 }
 
@@ -53,22 +56,30 @@ function fetchData(store, url, actionType) {
 
 function loadTeamData(store) {
   console.log('Load team data');
-  fetchData(store, `/api/team/${teamName}`, 'team/load');
+  if (teamName) {
+    fetchData(store, `/api/team/${teamName}`, 'team/load');
+  }
 }
 
 function loadJiraData(store) {
   console.log('Load JIRA data');
-  fetchData(store, `/api/team/${teamName}/jira`, 'jira/load');
+  if (teamName) {
+    fetchData(store, `/api/team/${teamName}/jira`, 'jira/load');
+  }
 }
 
 function loadJenkinsData(store) {
   console.log('Load Jenkins data');
-  fetchData(store, `/api/team/${teamName}/jenkins`, 'jenkins/load');
+  if (teamName) {
+    fetchData(store, `/api/team/${teamName}/jenkins`, 'jenkins/load');
+  }
 }
 
 function loadGerritData(store) {
   console.log('Load Gerrit data');
-  fetchData(store, `/api/team/${teamName}/gerrit`, 'gerrit/load');
+  if (teamName) {
+    fetchData(store, `/api/team/${teamName}/gerrit`, 'gerrit/load');
+  }
 }
 
 function loadData(store) {
