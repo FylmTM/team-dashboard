@@ -9,7 +9,8 @@ export const configurationDataSelector = createSelector(
   (configuration, currentTeamName) => {
     return {
       currentTeamName,
-      teams: configuration.teams.map(team => team.name),
+      teamNames: configuration.teams.map(team => team.name),
+      teamConfigurations: configuration.teams,
     };
   }
 );
