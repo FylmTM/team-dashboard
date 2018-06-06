@@ -1,5 +1,6 @@
 import { showError } from './toast';
 
+const CONFIGURATION_POLL_INTERVAL = 5 * 1000;
 const TEAM_POLL_INTERNVAL = 5 * 1000;
 const GERRIT_POLL_INTERNVAL = 5 * 1000;
 const JIRA_POLL_INTERNVAL = 5 * 1000;
@@ -40,7 +41,7 @@ function unloadData(store) {
 function fetchData(store, url, actionType) {
   console.log(`Fetching data for '${url}`);
 
-  fetch(url)
+  return fetch(url)
     .then(response => response.json())
     .then(result => {
       if (result.success === true) {
@@ -51,6 +52,19 @@ function fetchData(store, url, actionType) {
           `Error loading data for ${url}. Response: ${JSON.stringify(result)}`
         );
       }
+    });
+}
+
+function loadConfiguration(store) {
+  console.log('Load configuration data');
+  store.dispatch({
+    type: 'configuration/currentTeamName',
+    data: { name: teamName },
+  });
+  fetch('/api/configuration')
+    .then(response => response.json())
+    .then(result => {
+      store.dispatch({ type: 'configuration/load', data: result });
     });
 }
 
@@ -84,6 +98,7 @@ function loadGerritData(store) {
 
 function loadData(store) {
   console.log('Loading data...');
+  loadConfiguration(store);
   loadTeamData(store);
   loadJiraData(store);
   loadJenkinsData(store);
@@ -91,6 +106,10 @@ function loadData(store) {
 }
 
 function startPolling(store) {
+  setInterval(() => {
+    loadConfiguration(store);
+  }, CONFIGURATION_POLL_INTERVAL);
+
   setInterval(() => {
     loadTeamData(store);
   }, TEAM_POLL_INTERNVAL);

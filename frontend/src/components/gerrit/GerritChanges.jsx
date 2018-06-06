@@ -6,7 +6,6 @@ import GerritChange from './GerritChange';
 import './GerritChanges.css';
 
 export function GerritChanges({ changes }) {
-  console.log(changes);
   return (
     <div className="gerrit-changes">
       {changes.map(change => <GerritChange key={change.id} change={change} />)}
