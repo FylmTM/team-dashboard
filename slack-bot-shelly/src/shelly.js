@@ -2,7 +2,7 @@ const executeCommand = require('./executeCommand');
 
 function shelly(bot, message) {
   console.log(`Message received: ${message.text}`);
-  executeCommand(message.text)
+  executeCommand(`${process.execPath} src/program.js ${message.text}`)
     .then(result => {
       console.log(`Message response: ${result}`);
       bot.reply(message, {
