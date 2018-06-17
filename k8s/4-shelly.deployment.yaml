@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: neueda-team-dashboard
+  name: team-dashboard-shelly
+  labels:
+    app: team-dashboard-shelly
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: team-dashboard-shelly
+  template:
+    metadata:
+      labels:
+        app: team-dashboard-shelly
+    spec:
+      containers:
+      - image: fylmtm/team-dashboard-shelly:0.8.0
+        name: team-dashboard-shelly
+        env:
+          - name: TOKEN
+            valueFrom:
+              secretKeyRef:
+                key: team-dashboard-config
+                name: slack_bot_token
+        volumeMounts:
+          - name: team-dashboard-config
+            mountPath: /app/kube.conf
+            subPath: kube.conf
+      volumes:
+        - name: team-dashboard-config
+          configMap:
+            name: team-dashboard-config

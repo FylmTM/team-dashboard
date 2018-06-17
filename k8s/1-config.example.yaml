@@ -4,6 +4,9 @@ metadata:
   namespace: neueda-team-dashboard
   name: team-dashboard-config
 data:
+  slack_bot_token: abc123
+  kube.conf: |
+    kubeconf
   application.yml: |
     dashboard:
       jira:
