@@ -16,7 +16,7 @@ spec:
         app: team-dashboard-backend
     spec:
       containers:
-      - image: fylmtm/team-dashboard-backend:0.8.0
+      - image: fylmtm/team-dashboard-backend:0.9.0
         name: team-dashboard-backend
         ports:
         - name: http-api
