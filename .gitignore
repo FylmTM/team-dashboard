@@ -27,3 +27,4 @@ build/
 /.nb-gradle/
 
 node_modules/
+.env

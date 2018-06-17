@@ -1,34 +1,21 @@
-const { RTMClient } = require('@slack/client');
+require('dotenv').config();
 
-const token = '';
+const Botkit = require('botkit');
+const shelly = require('./shelly');
 
-const rtm = new RTMClient(token);
-rtm.start();
-
-// This argument can be a channel ID, a DM ID, a MPDM ID, or a group ID
-const conversationId = 'C1232456';
-
-rtm.on('message', message => {
-  console.log(message);
-  // For structure of `event`, see https://api.slack.com/events/message
-
-  // Skip messages that are from a bot or my own user ID
-  if (
-    (message.subtype && message.subtype === 'bot_message') ||
-    (!message.subtype && message.user === rtm.activeUserId)
-  ) {
-    return;
-  }
-
-  // Log the message
-  // console.log(message);
-  // console.log(`(channel:${message.channel}) ${message.user} says: ${message.text}`);
+const controller = Botkit.slackbot();
+const bot = controller.spawn({
+  token: process.env.TOKEN,
 });
 
-// The RTM client can send simple string messages
-// rtm.sendMessage('Hello there', conversationId)
-// .then((res) => {
-//   `res` contains information about the posted message
-// console.log('Message sent: ', res.ts);
-// })
-// .catch(console.error);
+bot.startRTM(function(err, bot, payload) {
+  if (err) {
+    throw new Error('Could not connect to Slack');
+  }
+
+  controller.on(['direct_message', 'direct_mention'], shelly);
+
+  process.on('exit', function() {
+    bot.closeRTM();
+  });
+});
