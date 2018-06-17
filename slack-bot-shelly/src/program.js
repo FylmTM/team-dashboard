@@ -1,15 +1,14 @@
 const Command = require('commander').Command;
 const version = require('../package.json').version;
+const log = require('./util/log');
+const errorExit = require('./util/errorExit');
+
+const appList = require('./commands/app-list');
+const appEnvironments = require('./commands/app-environments');
+const appRelease = require('./commands/app-release');
+const appStatus = require('./commands/app-status');
 
 const program = new Command('@shelly');
-
-function log(message) {
-  console.log(message);
-}
-
-function errorExit() {
-  process.exit(1);
-}
 
 program.version(version);
 
@@ -23,17 +22,13 @@ program
 program
   .command('app-list')
   .description("Show configured <app>'s")
-  .action(() => {
-    log(`Not implemented.`);
-  });
+  .action(appList);
 
 program
   .command('app-environments <app>')
   .alias('app-env')
   .description('Show environments configured for <app>')
-  .action(app => {
-    log(`[${app}] Not implemented.`);
-  });
+  .action(appEnvironments);
 
 program
   .command('app-release <app>')
@@ -42,16 +37,12 @@ program
     '-e, --env <env>',
     'Specify required environment. Default: all environments'
   )
-  .action(app => {
-    log(`[${app}] Not implemented.`);
-  });
+  .action(appRelease);
 
 program
   .command('app-status <app> <environment>')
   .description('Show <app> status on <environment>.')
-  .action((app, environment) => {
-    log(`[${app} ${environment}] Not implemented.`);
-  });
+  .action(appStatus);
 
 program.on('command:*', function() {
   log(
