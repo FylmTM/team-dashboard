@@ -19,6 +19,9 @@ class DashboardConfiguration {
     var jenkins: JenkinsConfiguration = JenkinsConfiguration()
 
     @Valid
+    var slack: SlackConfiguration = SlackConfiguration()
+
+    @Valid
     var teams: List<Team> = ArrayList()
 }
 
@@ -65,6 +68,24 @@ class JenkinsConfiguration {
 
     @NotEmpty
     var updateRate: Long = 0
+
+    @NotEmpty
+    var monitorUpdateRate: Long = 0
+}
+
+class SlackConfiguration {
+
+    @Valid
+    var jenkinsMonitor: List<SlackJenkinsMonitor> = ArrayList()
+}
+
+class SlackJenkinsMonitor {
+
+    @NotEmpty
+    var job: String = ""
+
+    @NotEmpty
+    var hookUrl: String = ""
 }
 
 class Team {
