@@ -1,0 +1,25 @@
+{
+  "name": "slack-bot-shelly",
+  "version": "0.1.0",
+  "private": true,
+  "engine": {
+    "node": "10.1.0"
+  },
+  "dependencies": {
+    "@slack/client": "4.3.1"
+  },
+  "devDependencies": {
+    "cross-env": "5.1.5",
+    "husky": "0.14.3",
+    "prettier": "1.12.1",
+    "pretty-quick": "1.4.1"
+  },
+  "scripts": {
+    "lint": "prettier --write \"src/**/*.js\" \"src/**/*.jsx\"",
+    "precommit": "pretty-quick --staged"
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "singleQuote": true
+  }
+}
