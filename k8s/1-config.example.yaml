@@ -7,6 +7,20 @@ data:
   slack_bot_token: abc123
   kube.conf: |
     kubeconf
+  shelly-config.js: |
+    module.exports = {
+      apps: [
+        {
+          name: "app",
+          environments: [
+            {
+              name: 'staging',
+              helmRelease: 'staging'
+            },
+          ]
+        }
+      ]
+    };
   application.yml: |
     dashboard:
       jira:

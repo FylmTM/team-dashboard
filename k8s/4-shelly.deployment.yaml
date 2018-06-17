@@ -24,10 +24,15 @@ spec:
               secretKeyRef:
                 key: team-dashboard-config
                 name: slack_bot_token
+          - name: CONFIG
+            value: /app/shelly-config.js
         volumeMounts:
-          - name: team-dashboard-config
+          - name: kube-config
             mountPath: /app/kube.conf
             subPath: kube.conf
+          - name: shelly-config
+            mountPath: /app/shelly-config.js
+            subPath: shelly-config.js
       volumes:
         - name: team-dashboard-config
           configMap:
