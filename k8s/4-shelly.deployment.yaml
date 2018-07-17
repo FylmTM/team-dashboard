@@ -16,7 +16,7 @@ spec:
         app: team-dashboard-shelly
     spec:
       containers:
-      - image: fylmtm/team-dashboard-shelly:0.11.0
+      - image: fylmtm/team-dashboard-shelly:0.12.0
         name: team-dashboard-shelly
         env:
           - name: TOKEN
