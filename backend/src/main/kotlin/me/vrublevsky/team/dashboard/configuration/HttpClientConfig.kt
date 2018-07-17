@@ -8,7 +8,7 @@ import org.springframework.web.client.RestTemplate
 class HttpClientConfig {
 
     @Bean
-    fun createSlackHttpClient(): RestTemplate {
+    fun createHttpClient(): RestTemplate {
         return RestTemplate()
     }
 }

@@ -7,16 +7,20 @@ import me.vrublevsky.team.dashboard.slack.SlackClient
 import me.vrublevsky.team.dashboard.slack.SlackMessageAttachment
 import me.vrublevsky.team.dashboard.slack.SlackMessageAttachmentField
 import me.vrublevsky.team.dashboard.slack.SlackMessageRequest
+import me.vrublevsky.team.dashboard.systems.jenkins.allure.JenkinsAllureClient
 import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Component
+import java.util.concurrent.ConcurrentHashMap
+import java.util.stream.Collectors
 
 @Component
 class JenkinsMonitorScheduler(
         val client: JenkinsServer,
         val slackClient: SlackClient,
+        val jenkinsAllureClient: JenkinsAllureClient,
         val dashboardConfiguration: DashboardConfiguration
 ) {
-    var lastBuildNumber: Int = 0
+    var lastBuildNumbers: MutableMap<String, Int> = ConcurrentHashMap()
 
     companion object {
         val LOGGER = logger()
@@ -26,8 +30,8 @@ class JenkinsMonitorScheduler(
     fun updateJenkinsData() {
         dashboardConfiguration.slack.jenkinsMonitor.forEach { jenkinsMonitor ->
             val job = client.getJob(jenkinsMonitor.job)
-
             val build = job.lastFailedBuild
+            val lastBuildNumber = lastBuildNumbers.getOrDefault(jenkinsMonitor.job, 0)
 
             if (build == null) {
                 LOGGER.info("No failed build: null.")
@@ -44,35 +48,85 @@ class JenkinsMonitorScheduler(
                 return
             }
 
-            lastBuildNumber = build.number
+            lastBuildNumbers[jenkinsMonitor.job] = build.number
 
-            val number = build.details().number
+            val buildWithDetails = build.details()
+            val number = buildWithDetails.number
             val name = job.displayName
-            val url = build.details().url
-            val parameters = build.details().parameters
+            val url = buildWithDetails.url
+            val parameters = buildWithDetails.parameters
             val chartName = parameters.getOrDefault("CHART_NAME", "-")
             val chartVersion = parameters.getOrDefault("CHART_VERSION", "-")
-            val timestamp = build.details().timestamp
+            val timestamp = buildWithDetails.timestamp
 
-            val attachment = SlackMessageAttachment(
+            // Allure report details
+            val hasAllureReport = buildWithDetails.artifacts.stream()
+                    .anyMatch { artifact -> artifact.displayPath == "allure-report.zip" }
+
+            val attachments: MutableList<SlackMessageAttachment> = ArrayList()
+
+
+            // Main info
+            val mainInfoAttachment = SlackMessageAttachment(
                     "[Jenkins] Build $name #$number failed."
             )
-            attachment.color = "#c23030"
-            attachment.titleLink = "$url/console"
-            attachment.ts = timestamp / 1000
-            attachment.fields = listOf(
+            mainInfoAttachment.color = "#c23030"
+            mainInfoAttachment.titleLink = "$url/console"
+            mainInfoAttachment.ts = timestamp / 1000
+            mainInfoAttachment.fields = listOf(
                     SlackMessageAttachmentField("Job", "<${job.url}|$name>"),
                     SlackMessageAttachmentField("Build", "<${build.url}|#$number>"),
                     SlackMessageAttachmentField("Chart name", chartName),
                     SlackMessageAttachmentField("Chart version", chartVersion)
             )
-            LOGGER.info("Slack jenkins monitor sending: {}", attachment)
+            attachments.add(mainInfoAttachment)
+
+            // Allure info
+
+            if (hasAllureReport) {
+                val suites = jenkinsAllureClient.getSuites(name, number)
+
+                val allureReportAttachment = SlackMessageAttachment(
+                        "Allure Report"
+                )
+                allureReportAttachment.color = "#c23030"
+                allureReportAttachment.titleLink = "$url/allure"
+                allureReportAttachment.ts = timestamp / 1000
+                allureReportAttachment.fields = suites.children.stream()
+                        .filter { suite ->
+                            suite.children.stream().anyMatch { test ->
+                                test.status != "passed"
+                            }
+                        }
+                        .map { suite ->
+                            SlackMessageAttachmentField(
+                                    suite.name.split(".").last(),
+                                    suite.children.stream()
+                                            .filter { test -> test.status != "passed" }
+                                            .map { test -> "${getEmojiForTestStatus(test.status)} <$url/allure#suites/${suite.uid}/${test.uid}/|${test.name}>" }
+                                            .collect(Collectors.joining("\n")),
+                                    false
+                            )
+                        }
+                        .collect(Collectors.toList())
+                attachments.add(allureReportAttachment)
+            }
+
+            LOGGER.info("Slack jenkins monitor sending: {}", mainInfoAttachment)
             slackClient.postMessage(
                     jenkinsMonitor.hookUrl,
-                    SlackMessageRequest(
-                            listOf(attachment)
-                    )
+                    SlackMessageRequest(attachments)
             )
         }
+    }
+
+    private fun getEmojiForTestStatus(status: String): String {
+        if (status == "passed") {
+            return ":heavy_check_mark:"
+        }
+        if (status == "failed") {
+            return ":x:"
+        }
+        return ":grey_question:"
     }
 }
